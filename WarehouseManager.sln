@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30907.101
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarehouseManager.Data", "WarehouseManager.Data\WarehouseManager.Data.csproj", "{678FAD57-F2F8-4C9A-8DE6-DAA3114B4CD9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarehouseManager.Repository", "WarehouseManager.Repository\WarehouseManager.Repository.csproj", "{F5EE0EA5-D65C-451F-BB44-9F82CC5A6806}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{678FAD57-F2F8-4C9A-8DE6-DAA3114B4CD9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{678FAD57-F2F8-4C9A-8DE6-DAA3114B4CD9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{678FAD57-F2F8-4C9A-8DE6-DAA3114B4CD9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{678FAD57-F2F8-4C9A-8DE6-DAA3114B4CD9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F5EE0EA5-D65C-451F-BB44-9F82CC5A6806}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F5EE0EA5-D65C-451F-BB44-9F82CC5A6806}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F5EE0EA5-D65C-451F-BB44-9F82CC5A6806}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F5EE0EA5-D65C-451F-BB44-9F82CC5A6806}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E14015C7-1FC4-4123-B321-9952F3BCB9AD}
+	EndGlobalSection
+EndGlobal
