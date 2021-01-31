@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="9.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WarehouseManager.Common\WarehouseManager.Common.csproj" />
+    <ProjectReference Include="..\WarehouseManager.Repository\WarehouseManager.Repository.csproj" />
+  </ItemGroup>
+
+</Project>

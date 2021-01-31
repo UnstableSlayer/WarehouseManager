@@ -11,8 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\WarehouseManager.Data\WarehouseManager.Data.csproj" />
     <ProjectReference Include="..\WarehouseManager.Repository\WarehouseManager.Repository.csproj" />
+    <ProjectReference Include="..\WarehouseManager.Service\WarehouseManager.Service.csproj" />
   </ItemGroup>
 
 </Project>

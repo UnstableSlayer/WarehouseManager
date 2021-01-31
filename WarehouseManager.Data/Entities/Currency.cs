@@ -8,9 +8,6 @@ namespace WarehouseManager.Data.Entities
     {
         public string Name { get; set; }
         public string Symbol { get; set; }
-        public string Value { get; set; }
-
-        //Other currency to compare with
-        public int OtherCurrencyId { get; set; }
+        public string Code { get; set; }
     }
 }

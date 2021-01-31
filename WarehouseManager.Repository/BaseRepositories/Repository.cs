@@ -55,9 +55,9 @@ namespace WarehouseManager.Repository.BaseRepositories
 
             T tmp = GetById(toUpdate.Id);
 
-            _context.Update(toUpdate);
-            //_context.Entry(tmp).CurrentValues.SetValues(toUpdate);
-            //_context.SaveChanges();
+            //_context.Update(toUpdate);
+            _context.Entry(tmp).CurrentValues.SetValues(toUpdate);
+            _context.SaveChanges();
         }
         public bool SaveChanges()
         {

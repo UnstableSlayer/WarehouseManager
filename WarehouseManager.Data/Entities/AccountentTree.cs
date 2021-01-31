@@ -11,8 +11,8 @@ namespace WarehouseManager.Data.Entities
     [Table(name: "AccountentTree", Schema = "actr")]
     public class AccountentTree : BaseEntity
     {
-        public string Code { get; private set; }
-        public string FullCode { get; private set; }
+        public int Code { get; private set; }
+        public int FullCode { get; private set; }
         public string Name { get; private set; }
         public AccountentTree ParentTree { get; set; }
         public AccountentTreeType TreeType { get; private set; }
