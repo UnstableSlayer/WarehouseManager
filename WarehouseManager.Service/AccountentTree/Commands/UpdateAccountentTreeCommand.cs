@@ -10,6 +10,7 @@ namespace WarehouseManager.Service.AccountentTrees.Commands
 {
     public class UpdateAccountentTreeCommand
     {
+        public int Id { get; set; }
         public int Code { get; set; }
         public string Name { get; set; }
         public int? ParentTreeId { get; set; }
@@ -20,6 +21,7 @@ namespace WarehouseManager.Service.AccountentTrees.Commands
     {
         public UpdateAccountentTreeCommandValidator()
         {
+            RuleFor(warehouse => warehouse.Id).GreaterThan(0);
             RuleFor(warehouse => warehouse.Code).GreaterThan(0);
             RuleFor(warehouse => warehouse.Name).NotNull().NotEmpty().Length(0, 50);
         }

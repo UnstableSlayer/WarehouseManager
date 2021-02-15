@@ -59,13 +59,34 @@ namespace WarehouseManager.Service.AccountentTrees
             var parent = _repository.GetById(command.ParentTreeId);
             string fullCode = parent != null ? String.Format($"{parent.FullCode}-{command.Code}") : Convert.ToString(command.Code);
 
+            ChangeFullCodeOfChildren(command.Id);
+
             _repository.Update(new AccountentTree()
             {
+                Id = command.Id,
                 Code = command.Code,
-                FullCode = fullCode,
                 Name = command.Name,
                 ParentTreeId = command.ParentTreeId,
             });
+        }
+
+        void ChangeFullCodeOfChildren(int? id)
+        {
+            if (id == null) return;
+
+            var parent = _repository.GetById(id);
+
+            if (parent.Children == null) return;
+
+            int numberOfChildren = parent.Children.ToList().Count;
+            for (int i = 0; i < numberOfChildren; i++)
+            {
+                var child = parent.Children.ElementAt(i);
+                child.FullCode = String.Format($"{parent.FullCode}-{child.Code}");
+
+                if (child.Children != null)
+                    ChangeFullCodeOfChildren(child.Id);
+            }
         }
     }
 }

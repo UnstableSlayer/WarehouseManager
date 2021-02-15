@@ -46,7 +46,7 @@ namespace WarehouseManager.API.Controllers
             return Ok(accountentTreeToFind);
         }
 
-        [HttpGet("{Code:int}")]
+        [HttpGet("{Code}")]
         public ActionResult<AccountentTree> GetByCode(int Code)
         {
             var accountentTreeToFind = _accountentTreeRepository.GetByCode(Code);
@@ -59,7 +59,7 @@ namespace WarehouseManager.API.Controllers
             return Ok(accountentTreeToFind);
         }
 
-        [HttpGet("{FullCode:int}")]
+        [HttpGet("{FullCode}")]
         public ActionResult<AccountentTree> GetByFullCode(string FullCode)
         {
             var accountentTreeToFind = _accountentTreeRepository.GetByFullCode(FullCode);
@@ -86,7 +86,7 @@ namespace WarehouseManager.API.Controllers
             return Ok();
         }
 
-        [HttpPut("{Code:int}")]
+        [HttpPut("{Code}")]
         public ActionResult UpdateAccountentTreeByCode(int Code, UpdateAccountentTreeCommand command)
         {
             var accountentTreeToUpdate = _accountentTreeRepository.GetByCode(Code);
@@ -100,7 +100,7 @@ namespace WarehouseManager.API.Controllers
             return Ok();
         }
 
-        [HttpPut("{FullCode:int}")]
+        [HttpPut("{FullCode}")]
         public ActionResult UpdateAccountentTreeByFullCode(string FullCode, UpdateAccountentTreeCommand command)
         {
             var accountentTreeToUpdate = _accountentTreeRepository.GetByFullCode(FullCode);
@@ -127,7 +127,7 @@ namespace WarehouseManager.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{Code:int}")]
+        [HttpDelete("{Code}")]
         public ActionResult DeleteAccountentTreeByCode(int Code)
         {
             var accountentTreeToDelete = _accountentTreeRepository.GetByCode(Code);
@@ -140,7 +140,7 @@ namespace WarehouseManager.API.Controllers
             return Ok();
         }
 
-        [HttpDelete("{FullCode:int}")]
+        [HttpDelete("{FullCode}")]
         public ActionResult DeleteAccountentTreeByFullCode(string FullCode)
         {
             var accountentTreeToDelete = _accountentTreeRepository.GetByFullCode(FullCode);
