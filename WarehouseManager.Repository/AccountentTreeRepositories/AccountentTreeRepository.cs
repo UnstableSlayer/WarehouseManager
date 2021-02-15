@@ -14,17 +14,17 @@ namespace WarehouseManager.Repository.BaseRepositories
     {
         public AccountentTreeRepository(WarehouseManagerDBContext actrContext) : base(actrContext) { }
 
-        public AccountentTree GetFirstOrDefaultByCode(int codeToFind)
+        public AccountentTree GetByCode(int codeToFind)
         {
             return _context.Set<AccountentTree>().FirstOrDefault(x => x.Code == codeToFind);
         }
 
-        public AccountentTree GetFirstOrDefaultByFullCode(int fullCodeToFind)
+        public AccountentTree GetByFullCode(string fullCodeToFind)
         {
             return _context.Set<AccountentTree>().FirstOrDefault(x => x.FullCode == fullCodeToFind);
         }
 
-        public AccountentTree GetFirstOrDefaultByName(string nameToFind)
+        public AccountentTree GetByName(string nameToFind)
         {
             return _context.Set<AccountentTree>().FirstOrDefault(x => x.Name == nameToFind);
         }

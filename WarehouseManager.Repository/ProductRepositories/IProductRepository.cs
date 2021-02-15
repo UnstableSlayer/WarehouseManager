@@ -6,8 +6,8 @@ namespace WarehouseManager.Repository.BaseRepositories
 {
     public interface IProductRepository : IRepository<Product>
     {
-        Product GetByCode(string codeToFind);
-        Product GetByBarCode(string barCodeToFind);
+        Product GetByCode(int codeToFind);
+        Product GetByBarcode(string barcodeToFind);
         Product GetByBoxCode(string boxCodeToFind);
         Product GetByName(string nameToFind);
         Product GetByEN_Name(string enNameToFind);

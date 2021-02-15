@@ -1,14 +1,9 @@
 ﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using WarehouseManager.Data.Entities;
 
 namespace WarehouseManager.Service.Products.Commands
 {
-    class UpdateWarehouseCommand
+    class UpdateAccountentTreeCommand
     {
         public int Code { get; set; }
         public int Account { get; set; }
@@ -21,6 +16,8 @@ namespace WarehouseManager.Service.Products.Commands
     {
         public UpdateWarehouseCommandValidator()
         {
+            RuleFor(warehouse => warehouse.Code).GreaterThan(0);
+            RuleFor(warehouse => warehouse.Account).GreaterThan(0);
             RuleFor(warehouse => warehouse.Name).NotNull().NotEmpty().Length(2, 50);
             RuleFor(warehouse => warehouse.Address).NotNull().NotEmpty().Length(2, 50);
             RuleFor(warehouse => warehouse.Manager).NotNull().NotEmpty();

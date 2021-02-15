@@ -6,12 +6,12 @@ namespace WarehouseManager.Repository.BaseRepositories
 {
     public interface IEmployeeRepository : IRepository<Employee>
     {
-        Employee GetFirstOrDefaultByAccountCode(int accountCodeToFind);
-        Employee GetFirstOrDefaultByPersonalId(int personalIdToFind);
-        Employee GetFirstOrDefaultByFirstName(string firstNameToFind);
-        Employee GetFirstOrDefaultByLastName(string lastNameToFind);
-        Employee GetFirstOrDefaultByEmail(string emailToFind);
-        Employee GetFirstOrDefaultByAddress(string addressToFind);
-        Employee GetFirstOrDefaultByPhoneNumber(string phoneNumberToFind);
+        Employee GetByAccountCode(int accountCodeToFind);
+        Employee GetByPersonalId(int personalIdToFind);
+        Employee GetByFirstName(string firstNameToFind);
+        Employee GetByLastName(string lastNameToFind);
+        Employee GetByEmail(string emailToFind);
+        Employee GetByAddress(string addressToFind);
+        Employee GetByPhoneNumber(string phoneNumberToFind);
     }
 }

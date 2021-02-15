@@ -6,8 +6,8 @@ namespace WarehouseManager.Repository.BaseRepositories
 {
     public interface IAccountentTreeRepository : IRepository<AccountentTree>
     {
-        AccountentTree GetFirstOrDefaultByCode(int codeToFind);
-        AccountentTree GetFirstOrDefaultByFullCode(int fullCodeToFind);
-        AccountentTree GetFirstOrDefaultByName(string nameToFind);
+        AccountentTree GetByCode(int codeToFind);
+        AccountentTree GetByFullCode(string fullCodeToFind);
+        AccountentTree GetByName(string nameToFind);
     }
 }

@@ -2,8 +2,6 @@
 using WarehouseManager.Common.Exceptions;
 using WarehouseManager.Data.Entities;
 using WarehouseManager.Repository.BaseRepositories;
-using WarehouseManager.Repository;
-using WarehouseManager.Service.Employees.Commands;
 using WarehouseManager.Service.WareHouses.Commands;
 using WarehouseManager.Service.Products.Commands;
 
@@ -32,6 +30,8 @@ namespace WarehouseManager.Service.WareHouses
             }
             _repository.Insert(new Warehouse
             {
+                Code = command.Code,
+                Account = command.Account,
                 Name = command.Name,
                 Address = command.Address,
                 Manager = command.Employee

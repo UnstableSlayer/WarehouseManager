@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using WarehouseManager.Data.Entities;
 using WarehouseManager.Repository.BaseRepositories;
+using WarehouseManager.Service.AccountentTrees;
 using WarehouseManager.Service.WareHouses;
 using WarehouseManager.Service.WareHouses.Commands;
 
@@ -21,6 +22,13 @@ namespace WarehouseManager.API.Controllers
             _warehouseService = warehouseService;
         }
 
+        [HttpPost]
+        public ActionResult<Warehouse> CreateWarehouse(CreateWareHouseCommand command)
+        {
+            _warehouseService.CreateWareHouse(command);
+            return Ok(command);
+        }
+
         [HttpGet]
         public ActionResult<IEnumerable<Warehouse>> GetAll()
         {
@@ -30,50 +38,43 @@ namespace WarehouseManager.API.Controllers
         [HttpGet("{Id:int}")]
         public ActionResult<Warehouse> GetById(int Id)
         {
-            var employeeModelFromRepo = _repository.GetById(Id);
-            if (employeeModelFromRepo == null)
+            var warehouseToFind = _repository.GetById(Id);
+            if (warehouseToFind == null)
             {
                 return NotFound();
             }
 
-            return Ok(employeeModelFromRepo);
+            return Ok(warehouseToFind);
         }
 
         [HttpGet("{Address}")]
-        public ActionResult<Employee> GetByAddress(string Address)
+        public ActionResult<Warehouse> GetByAddress(string Address)
         {
-            var employeeModelFromRepo = _warehouseRepository.GetByAddress(Address);
-            if (employeeModelFromRepo == null)
+            var warehouseToFind = _warehouseRepository.GetByAddress(Address);
+            if (warehouseToFind == null)
             {
                 return NotFound();
             }
 
 
-            return Ok(employeeModelFromRepo);
+            return Ok(warehouseToFind);
         }
 
-        [HttpPost]
-        public ActionResult<Employee> CreateEmployee(CreateWareHouseCommand command)
+        [HttpGet("{Code}")]
+        public ActionResult<Warehouse> GetByCode(int Code)
         {
-            _warehouseService.CreateWareHouse(command);
-            return Ok(command);
-        }
-
-        [HttpDelete("{Id}")]
-        public ActionResult DeleteEmployee(int Id)
-        {
-            var warehouseModelFromRepo = _repository.GetById(Id);
-            if (warehouseModelFromRepo == null)
+            var warehouseToFind = _warehouseRepository.GetByCode(Code);
+            if (warehouseToFind == null)
             {
                 return NotFound();
             }
-            _repository.Delete(Id);
 
-            return Ok();
+
+            return Ok(warehouseToFind);
         }
 
         [HttpPut("{Id}")]
-        public ActionResult UpdateEmployee(int Id, Warehouse command)
+        public ActionResult UpdateWarehouseById(int Id, Warehouse command)
         {
             if(Id != command.Id)
             {
@@ -87,7 +88,48 @@ namespace WarehouseManager.API.Controllers
 
             _warehouseService.UpdateWarehouse(command);
 
-            return NoContent();
+            return Ok();
+        }
+
+        [HttpPut("{Code}")]
+        public ActionResult UpdateWarehouseByCode(int Code, Warehouse command)
+        {
+            var warehouseModelFromRepo = _warehouseRepository.GetByCode(Code);
+            if (warehouseModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _warehouseService.UpdateWarehouse(command);
+
+            return Ok();
+        }
+
+
+        [HttpDelete("{Id}")]
+        public ActionResult DeleteWarehouseById(int Id)
+        {
+            var warehouseToDelete = _repository.GetById(Id);
+            if (warehouseToDelete == null)
+            {
+                return NotFound();
+            }
+            _repository.Delete(warehouseToDelete.Id);
+
+            return Ok();
+        }
+
+        [HttpDelete("{Code}")]
+        public ActionResult DeleteWarehouseByCode(int Code)
+        {
+            var warehouseToDelete = _warehouseRepository.GetByCode(Code);
+            if (warehouseToDelete == null)
+            {
+                return NotFound();
+            }
+            _repository.Delete(warehouseToDelete.Id);
+
+            return Ok();
         }
     }
 }

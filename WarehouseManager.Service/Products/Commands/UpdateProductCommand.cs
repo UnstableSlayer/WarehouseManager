@@ -3,7 +3,7 @@ using WarehouseManager.Data.Entities;
 
 namespace WarehouseManager.Service.Products.Commands
 {
-    public class CreateProductCommand
+    public class UpdateProductCommand
     {
         public int Code { get; set; }
         public string Barcode { get; set; }
@@ -23,9 +23,9 @@ namespace WarehouseManager.Service.Products.Commands
         public float RetailPrice { get; set; }
     }
 
-    public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
+    public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
     {
-        public CreateProductCommandValidator()
+        public UpdateProductCommandValidator()
         {
             RuleFor(product => product.Code).GreaterThan(0);
             RuleFor(product => product.Barcode).NotNull().NotEmpty().Length(1, 32);

@@ -14,37 +14,37 @@ namespace WarehouseManager.Repository.BaseRepositories
     {
         public EmployeeRepository(WarehouseManagerDBContext empContext) : base(empContext) { }
 
-        public Employee GetFirstOrDefaultByAccountCode(int accountCodeToFind)
+        public Employee GetByAccountCode(int accountCodeToFind)
         {
             return _context.Set<Employee>().FirstOrDefault(x => x.AccountCode == accountCodeToFind);
         }
 
-        public Employee GetFirstOrDefaultByPersonalId(int personalIdToFind)
+        public Employee GetByPersonalId(int personalIdToFind)
         {
             return _context.Set<Employee>().FirstOrDefault(x => x.PersonalId == personalIdToFind);
         }
 
-        public Employee GetFirstOrDefaultByAddress(string addressToFind)
+        public Employee GetByAddress(string addressToFind)
         {
             return _context.Set<Employee>().FirstOrDefault(x => x.Address == addressToFind);
         }
 
-        public Employee GetFirstOrDefaultByEmail(string emailToFind)
+        public Employee GetByEmail(string emailToFind)
         {
             return _context.Set<Employee>().FirstOrDefault(x => x.Email == emailToFind);
         }
 
-        public Employee GetFirstOrDefaultByPhoneNumber(string phoneNumberToFind)
+        public Employee GetByPhoneNumber(string phoneNumberToFind)
         {
             return _context.Set<Employee>().FirstOrDefault(x => x.PhoneNumber == phoneNumberToFind);
         }
 
-        public Employee GetFirstOrDefaultByFirstName(string firstNameToFind)
+        public Employee GetByFirstName(string firstNameToFind)
         {
             return _context.Set<Employee>().FirstOrDefault(x => x.Firstname == firstNameToFind);
         }
 
-        public Employee GetFirstOrDefaultByLastName(string lastNameToFind)
+        public Employee GetByLastName(string lastNameToFind)
         {
             return _context.Set<Employee>().FirstOrDefault(x => x.Lastname == lastNameToFind);
         }

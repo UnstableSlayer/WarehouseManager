@@ -43,15 +43,14 @@ namespace WarehouseManager.API.Controllers
             return Ok(employeeModelFromRepo);
         }
 
-        [HttpGet("{Address}")]
-        public ActionResult<Employee> GetByAddress(string Address)
+        [HttpGet("{PersonalId}")]
+        public ActionResult<Employee> GetByPersonalId(int PersonalId)
         {
-            var employeeModelFromRepo = _employeeRepository.GetFirstOrDefaultByAddress(Address);
+            var employeeModelFromRepo = _employeeRepository.GetByPersonalId(PersonalId);
             if (employeeModelFromRepo == null)
             {
                 return NotFound();
             }
-
 
             return Ok(employeeModelFromRepo);
         }
@@ -63,8 +62,40 @@ namespace WarehouseManager.API.Controllers
             return Ok(command);
         }
 
+        [HttpPut("{Id}")]
+        public ActionResult UpdateEmployeeById(int Id, UpdateEmployeeCommand command)
+        {
+            if (Id != command.Id)
+            {
+                return BadRequest();
+            }
+            var employeeModelFromRepo = _repository.GetById(Id);
+            if (employeeModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _employeeService.UpdateEmployee(command);
+
+            return NoContent();
+        }
+
+        [HttpPut("{PersonalId}")]
+        public ActionResult UpdateEmployeeByPersonalId(int PersonalId, UpdateEmployeeCommand command)
+        {
+            var employeeModelFromRepo = _employeeRepository.GetByPersonalId(PersonalId);
+            if (employeeModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _employeeService.UpdateEmployee(command);
+
+            return Ok();
+        }
+
         [HttpDelete("{Id}")]
-        public ActionResult DeleteEmployee(int Id)
+        public ActionResult DeleteEmployeeById(int Id)
         {
             var employeeModelFromRepo = _repository.GetById(Id);
             if (employeeModelFromRepo == null)
@@ -76,22 +107,17 @@ namespace WarehouseManager.API.Controllers
             return Ok();
         }
 
-        [HttpPut("{Id}")]
-        public ActionResult UpdateEmployee(int Id, Employee command)
+        [HttpDelete("{PersonalId}")]
+        public ActionResult DeleteEmployeeByPersonalId(int PersonalId)
         {
-            if(Id != command.Id)
-            {
-                return BadRequest();
-            }
-            var employeeModelFromRepo = _repository.GetById(Id);
-            if(employeeModelFromRepo == null)
+            var employeeModelFromRepo = _employeeRepository.GetByPersonalId(PersonalId);
+            if (employeeModelFromRepo == null)
             {
                 return NotFound();
             }
+            _repository.Delete(employeeModelFromRepo.Id);
 
-            _employeeService.UpdateEmployee(command);
-
-            return NoContent();
+            return Ok();
         }
     }
 }

@@ -34,7 +34,7 @@ namespace WarehouseManager.Repository.BaseRepositories
             return entities.AsEnumerable();
         }
 
-        public T GetById(int idToFind)
+        public T GetById(int? idToFind)
         {
             if (idToFind <= 0) throw new ArgumentOutOfRangeException("Id is negative or zero");
 

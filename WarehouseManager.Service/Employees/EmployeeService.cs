@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using WarehouseManager.Data.Entities;
-using WarehouseManager.Repository;
 using WarehouseManager.Service.Employees.Commands;
-using FluentValidation;
 using WarehouseManager.Common.Exceptions;
 using WarehouseManager.Repository.BaseRepositories;
 
@@ -48,25 +42,7 @@ namespace WarehouseManager.Service.Employees
             });
         }
 
-        public void DeleteEmployeeByEmail(DeleteEmployeeByEmailCommand command)
-        {
-            DeleteEmployeeByEmailCommandValidator validator = new DeleteEmployeeByEmailCommandValidator();
-            var results = validator.Validate(command);
-            if (!results.IsValid)
-            {
-                throw new CommandValidationException(results.Errors.Select(x => new CommandValidationError
-                {
-                    ErrorCode = x.ErrorCode,
-                    ErrorMessage = x.ErrorMessage,
-                    PropertyName = x.PropertyName
-                }));
-            }
-            var employees = _repository.GetAll();
-            var employeeToDelete = employees.Single(x => x.Email == command.Email);
-            _repository.Delete(employeeToDelete.Id);
-        }
-
-        public void UpdateEmployee(Employee command)
+        public void UpdateEmployee(UpdateEmployeeCommand command)
         {
             UpdateEmployeeCommandValidator validator = new UpdateEmployeeCommandValidator();
             var results = validator.Validate(command);

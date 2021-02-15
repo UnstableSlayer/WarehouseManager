@@ -6,7 +6,7 @@ namespace WarehouseManager.Data.Entities
     [Table(name: "Products", Schema = "prd")]
     public class Product : BaseEntity
     {
-        public string Code { get; set; }
+        public int Code { get; set; }
         public string Barcode { get; set; }
         public string Boxcode { get; set; }
         public string Name { get; set; }

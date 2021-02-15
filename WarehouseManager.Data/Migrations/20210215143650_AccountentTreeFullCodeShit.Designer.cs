@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WarehouseManager.Data;
 
 namespace WarehouseManager.Data.Migrations
 {
     [DbContext(typeof(WarehouseManagerDBContext))]
-    partial class WarehouseManagerDBContextModelSnapshot : ModelSnapshot
+    [Migration("20210215143650_AccountentTreeFullCodeShit")]
+    partial class AccountentTreeFullCodeShit
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

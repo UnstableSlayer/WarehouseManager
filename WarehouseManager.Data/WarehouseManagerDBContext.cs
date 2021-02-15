@@ -22,9 +22,6 @@ namespace WarehouseManager.Data
         public DbSet<AccountentTree> AccountentTrees { get; set; }
         public DbSet<AccountentTreeType> AccountentTreeTypes { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-
-        }
+        protected override void OnModelCreating(ModelBuilder builder) { }
     }
 }

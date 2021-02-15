@@ -1,10 +1,5 @@
-﻿using FluentValidation;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WarehouseManager.Data.BaseEntities;
+﻿using System;
+using FluentValidation;
 using WarehouseManager.Data.Entities;
 
 namespace WarehouseManager.Service.Employees.Commands

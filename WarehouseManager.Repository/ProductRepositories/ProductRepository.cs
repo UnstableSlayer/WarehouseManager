@@ -19,9 +19,9 @@ namespace WarehouseManager.Repository.BaseRepositories
             return _context.Set<Product>().FirstOrDefault(x => x.Amount == amountToFind);
         }
 
-        public Product GetByBarCode(string barCodeToFind)
+        public Product GetByBarcode(string barcodeToFind)
         {
-            return _context.Set<Product>().FirstOrDefault(x => x.Barcode == barCodeToFind);
+            return _context.Set<Product>().FirstOrDefault(x => x.Barcode == barcodeToFind);
         }
 
         public Product GetByBoxCode(string boxCodeToFind)
@@ -39,7 +39,7 @@ namespace WarehouseManager.Repository.BaseRepositories
             return _context.Set<Product>().FirstOrDefault(x => x.Category == categoryToFind);
         }
 
-        public Product GetByCode(string codeToFind)
+        public Product GetByCode(int codeToFind)
         {
             return _context.Set<Product>().FirstOrDefault(x => x.Code == codeToFind);
         }
