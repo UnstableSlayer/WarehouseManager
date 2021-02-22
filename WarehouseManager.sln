@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarehouseManager.Repository
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Warehouse.API", "Warehouse.API\Warehouse.API.csproj", "{76CB9E1D-D60E-4921-A679-9985BB9CB486}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseManager.Service", "WarehouseManager.Service\WarehouseManager.Service.csproj", "{51F495C0-A70B-4C8D-A3DC-1A1075677214}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarehouseManager.Service", "WarehouseManager.Service\WarehouseManager.Service.csproj", "{51F495C0-A70B-4C8D-A3DC-1A1075677214}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarehouseManager.Common", "WarehouseManager.Common\WarehouseManager.Common.csproj", "{2C8FA13D-A2FB-4729-AF6B-1E1BD0EB6837}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarehouseManager.HttpClientHelper", "WarehouseManager.HttpClient\WarehouseManager.HttpClientHelper.csproj", "{B519C332-B7D6-4E30-B1AC-8E5A61599AF3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{2C8FA13D-A2FB-4729-AF6B-1E1BD0EB6837}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2C8FA13D-A2FB-4729-AF6B-1E1BD0EB6837}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2C8FA13D-A2FB-4729-AF6B-1E1BD0EB6837}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B519C332-B7D6-4E30-B1AC-8E5A61599AF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B519C332-B7D6-4E30-B1AC-8E5A61599AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B519C332-B7D6-4E30-B1AC-8E5A61599AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B519C332-B7D6-4E30-B1AC-8E5A61599AF3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using WarehouseManager.Common.Exceptions;
+using WarehouseManager.Data;
 using WarehouseManager.Data.Entities;
 using WarehouseManager.Repository.BaseRepositories;
 using WarehouseManager.Service.AccountentTrees.Commands;
@@ -10,9 +11,12 @@ namespace WarehouseManager.Service.AccountentTrees
     public class AccountentTreeService
     {
         private readonly IRepository<AccountentTree> _repository;
-        public AccountentTreeService(IRepository<AccountentTree> accountentTreeRepository)
+        private readonly WarehouseManagerDBContext _context;
+
+        public AccountentTreeService(IRepository<AccountentTree> accountentTreeRepository, WarehouseManagerDBContext context)
         {
             _repository = accountentTreeRepository;
+            _context = context;
         }
 
         public void CreateAccountentTree(CreateAccountentTreeCommand command)
@@ -59,6 +63,15 @@ namespace WarehouseManager.Service.AccountentTrees
             var parent = _repository.GetById(command.ParentTreeId);
             string fullCode = parent != null ? String.Format($"{parent.FullCode}-{command.Code}") : Convert.ToString(command.Code);
 
+            _repository.Update(new AccountentTree()
+            {
+                Id = command.Id,
+                Code = command.Code,
+                Name = command.Name,
+                ParentTreeId = command.ParentTreeId,
+                FullCode = fullCode
+            });
+
             ChangeFullCodeOfChildren(command.Id);
 
             _repository.Update(new AccountentTree()
@@ -67,6 +80,7 @@ namespace WarehouseManager.Service.AccountentTrees
                 Code = command.Code,
                 Name = command.Name,
                 ParentTreeId = command.ParentTreeId,
+                FullCode = fullCode
             });
         }
 
@@ -75,6 +89,7 @@ namespace WarehouseManager.Service.AccountentTrees
             if (id == null) return;
 
             var parent = _repository.GetById(id);
+            _context.Entry(parent).Collection(p => p.Children).Load();
 
             if (parent.Children == null) return;
 
