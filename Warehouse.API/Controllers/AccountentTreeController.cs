@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using WarehouseManager.Data.Entities;
+using Microsoft.Extensions.Logging;
 using WarehouseManager.Repository.BaseRepositories;
 using WarehouseManager.Service.AccountentTrees;
 using WarehouseManager.Service.AccountentTrees.Commands;
@@ -14,11 +15,15 @@ namespace WarehouseManager.API.Controllers
         private readonly IRepository<AccountentTree> _repository;
         private readonly IAccountentTreeRepository _accountentTreeRepository;
         private readonly AccountentTreeService _accountentTreeService;
-        public AccountentTreeController(IRepository<AccountentTree> repository, IAccountentTreeRepository accountentTreeRepository, AccountentTreeService accountentTreeService)
+
+        private readonly ILogger<AccountentTreeController> _logger;
+        
+        public AccountentTreeController(IRepository<AccountentTree> repository, IAccountentTreeRepository accountentTreeRepository, AccountentTreeService accountentTreeService, ILogger<AccountentTreeController> logger)
         {
             _repository = repository;
             _accountentTreeRepository = accountentTreeRepository;
             _accountentTreeService = accountentTreeService;
+            _logger = logger;
         }
 
         [HttpPost]

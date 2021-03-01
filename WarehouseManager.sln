@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarehouseManager.Common", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WarehouseManager.HttpClientHelper", "WarehouseManager.HttpClient\WarehouseManager.HttpClientHelper.csproj", "{B519C332-B7D6-4E30-B1AC-8E5A61599AF3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WarehouseManager.Console", "WarehouseManager.Console\WarehouseManager.Console.csproj", "{17251414-05F7-4BC2-AC73-77224274C9E2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{B519C332-B7D6-4E30-B1AC-8E5A61599AF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B519C332-B7D6-4E30-B1AC-8E5A61599AF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B519C332-B7D6-4E30-B1AC-8E5A61599AF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{17251414-05F7-4BC2-AC73-77224274C9E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{17251414-05F7-4BC2-AC73-77224274C9E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{17251414-05F7-4BC2-AC73-77224274C9E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{17251414-05F7-4BC2-AC73-77224274C9E2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,32 +1,30 @@
-﻿using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+﻿using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
-using WarehouseManager.HttpClientHelper.BrandHttpServices.Commands;
 
-namespace WarehouseManager.HttpClientHelper.BrandHttpServices
+namespace WarehouseManager.HttpClientHelper.ProductHttpServices
 {
-    public class BrandService
+    public class ProductService
     {
         private HttpClientHelper _httpHelper { get; set; }
         private IOptions<Options> _options { get; set; }
         private ILogger _logger { get; set; }
 
-        public BrandService(HttpClientHelper httpHelper, IOptions<Options> options, ILogger<BrandService> logger)
+        public ProductService(HttpClientHelper httpHelper, IOptions<Options> options, ILogger<ProductService> logger)
         {
             _httpHelper = httpHelper;
             _options = options;
             _logger = logger;
         }
 
-        public async Task<IEnumerable<Brand>> GetAll()
+        public async Task<IEnumerable<Product>> GetAll()
         {
-            _logger.LogInformation("BrandService GetAll Called");
+            _logger.LogInformation("ProductService GetAll Called");
             try
             {
-                var result = await _httpHelper.Get<IEnumerable<Brand>>($"v1/Brands/");
+                var result = await _httpHelper.Get<IEnumerable<Product>>($"/Product/");
                 return result;
             }
             catch (Exception x)
@@ -36,12 +34,12 @@ namespace WarehouseManager.HttpClientHelper.BrandHttpServices
             }
         }
 
-        public async Task<Brand> CreateBrand(CreateBrandCommand accountentTree)
+        public async Task<CreateProductCommand> CreateAccountentTree(CreateProductCommand product)
         {
-            _logger.LogInformation("BrandService CreateBrand Called");
+            _logger.LogInformation("AccountentTreeService CreateAccountentTree Called");
             try
             {
-                var result = await _httpHelper.Post<Brand>($"v1/Brands/", accountentTree);
+                var result = await _httpHelper.Post<CreateProductCommand>($"v1/AccountentTrees/", product);
                 return result;
             }
             catch (Exception x)
@@ -50,6 +48,5 @@ namespace WarehouseManager.HttpClientHelper.BrandHttpServices
                 throw;
             }
         }
-
     }
 }
